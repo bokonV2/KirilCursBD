@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>"КириллИП"-{% block title %}{% endblock %}</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/css/index.css" />
+    <script src="/static/js/main.js"></script>
+  </head>
+  <body>
+    <section class="header">
+      <div class="top">
+        <div class="left">
+          <span onClick="window.location.href='/'">О компании</span>
+          <span>Как купить</span>
+          <span>Контакты</span>
+          <span>Конигуратор ПК</span>
+          <span>Обращения</span>
+        </div>
+        <div class="right">
+          <span>+375 29 777-77-77</span>
+          <span onClick="window.location.href='/login'" style="cursor:pointer;">Войти</span>
+        </div>
+      </div>
+      <div class="midle">
+        <div class="left">
+          <h1 onClick="window.location.href='/'">Кирилл ИП</h1>
+        </div>
+        <div class="midle">
+          <input type="text" placeholder="Поиск" />
+        </div>
+        <div class="right" onClick="window.location.href='/cart'" style="cursor:pointer;">
+          <svg
+            width="24px"
+            height="24px"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+            />
+          </svg>
+          <span>: 5</span>
+        </div>
+      </div>
+      <div class="bottom">
+        <div onclick="openSections(0)" class="section">{{ sections[0].name }}</div>
+        <div onclick="openSections(1)" class="section">{{ sections[1].name }}</div>
+        <div onclick="openSections(2)" class="section">{{ sections[2].name }}</div>
+        <div onclick="openSections(3)" class="section">{{ sections[3].name }}</div>
+        <div onclick="openSections(4)" class="section last">{{ sections[4].name }}</div>
+    </div>
+    {% for super in superSections %}
+    <div onmouseleave="openSections('{{loop.index0}}')" id="section{{loop.index0}}" class="dropSection" style="display:none">
+      {% for sectinon in super %}
+      <a href="/section/{{sectinon.id}}">{{sectinon.name}}</a>
+      {% endfor %}
+    </div>
+    {% endfor %}
+    </section>
+    {% block content %} {% endblock %}
+  </body>
+</html>

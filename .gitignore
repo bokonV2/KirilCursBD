@@ -5,6 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
+*.css.map
 
 # Distribution / packaging
 .Python

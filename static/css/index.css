@@ -1,0 +1,479 @@
+@import url("https://fonts.googleapis.com/css2?family=Marck+Script&family=Roboto&display=swap");
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+}
+
+svg {
+  overflow: visible;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+input {
+  outline: 0;
+  border: 0;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  background: rgba(30, 30, 30, 0.1176470588);
+}
+
+section.header {
+  position: relative;
+}
+section.header .top {
+  padding: 10px;
+  border-bottom: 1px solid rgba(48, 48, 48, 0.1882352941);
+  display: flex;
+  justify-content: space-around;
+  font-size: 14px;
+}
+section.header .top .left {
+  display: flex;
+  gap: 15px;
+}
+section.header .top .right {
+  display: flex;
+  gap: 15px;
+}
+section.header .midle {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  align-items: center;
+}
+section.header .midle .left {
+  white-space: unset;
+  font-family: "Marck Script", cursive;
+  font-size: 24px;
+  flex-shrink: 0;
+  text-shadow: 7px 5px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+section.header .midle .midle input {
+  width: 48vw;
+  padding: 10px 15px;
+}
+section.header .midle .right {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+section.header .midle .right span {
+  white-space: unset;
+  font-size: 18px;
+}
+section.header .bottom {
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  background: #415A77;
+  display: flex;
+  justify-content: center;
+}
+section.header .bottom .section {
+  padding: 15px 20px;
+  border-left: 1px solid #778DA9;
+}
+section.header .bottom .section:hover {
+  background: rgba(119, 141, 169, 0.3960784314);
+  cursor: pointer;
+}
+section.header .bottom .section.last {
+  border-right: 1px solid #778DA9;
+}
+section.header .dropSection {
+  position: absolute;
+  background: #778DA9;
+  width: -webkit-fill-available;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px 5%;
+}
+section.header .dropSection a {
+  font-family: "Roboto", sans-serif;
+  margin: 0 auto;
+  color: #fff;
+  text-decoration: none;
+  background: rgba(224, 225, 221, 0.1882352941);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 5px 10px;
+  width: 200px;
+  text-align: center;
+}
+
+section.index {
+  font-family: "Roboto", sans-serif;
+}
+section.index .topImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section.index .topImg img {
+  overflow: hidden;
+  display: block;
+}
+section.index .info h2 {
+  margin: 15px 25px;
+  color: #303030;
+}
+section.index .info .block {
+  display: flex;
+  background: rgba(224, 225, 221, 0.1882352941);
+}
+section.index .info .block .left {
+  width: 200px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 15vh;
+  background: #E0E1DD;
+}
+section.index .info .block .right {
+  padding: 20px;
+}
+section.index .info .block .right span {
+  display: block;
+  color: #505050;
+}
+section.index .info .block .right span.blocks {
+  margin: 20px 0;
+}
+section.index .info .block .right h3 {
+  margin-top: 20px;
+}
+section.index .info .block .right h5 {
+  margin: 20px 0;
+}
+
+section.login-register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6%;
+}
+section.login-register .box_form {
+  background: rgba(224, 225, 221, 0.3764705882);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding: 25px;
+}
+section.login-register .box_form h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+section.login-register .box_form form {
+  display: flex;
+  flex-direction: column;
+}
+section.login-register .box_form form input[type=text],
+section.login-register .box_form form input[type=password] {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  width: 250px;
+}
+section.login-register .box_form form input[type=submit] {
+  cursor: pointer;
+  margin-top: 25px;
+  padding: 10px 15px;
+  font-size: 16px;
+  background: #778DA9;
+  color: #fff;
+  font-weight: bold;
+}
+section.login-register .box_form form input[type=submit]:hover {
+  background: #415A77;
+}
+section.login-register .box_form form a {
+  margin-top: 5px;
+  text-align: center;
+}
+section.login-register .box_form form a:visited {
+  color: blue;
+}
+
+section.section {
+  padding: 15px;
+  font-family: "Roboto", sans-serif;
+}
+section.section .top {
+  margin: 15px 30px;
+}
+section.section .top h3 {
+  margin-left: 10px;
+}
+section.section .block {
+  display: flex;
+  background: rgba(224, 225, 221, 0.3764705882);
+}
+section.section .block .filter {
+  box-sizing: border-box;
+  width: 250px;
+  background: #E0E1DD;
+  padding: 10px;
+  padding-top: 0;
+}
+section.section .block .filter h4 {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(48, 48, 48, 0.1882352941);
+}
+section.section .block .filter_block {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(48, 48, 48, 0.1882352941);
+}
+section.section .block .filter_block.last {
+  border: 0;
+}
+section.section .block .filter .submit {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+section.section .block .filter .submit span {
+  cursor: pointer;
+  background: #778DA9;
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+section.section .block .filter .submit span:hover {
+  background-color: #415A77;
+}
+section.section .block .items {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+  gap: 10px;
+  width: 100%;
+}
+section.section .block .items_item {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  background-color: #fff;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+section.section .block .items_item img {
+  overflow: hidden;
+}
+section.section .block .items_item-title {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+section.section .block .items_item-button {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  height: 24px;
+}
+section.section .block .items_item-button:hover .items_item-button-buy {
+  display: block;
+}
+section.section .block .items_item-button:hover .items_item-button-coast {
+  display: none;
+}
+section.section .block .items_item-button-coast {
+  font-weight: bold;
+}
+section.section .block .items_item-button-buy {
+  cursor: pointer;
+  display: none;
+  box-sizing: border-box;
+  color: #fff;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 2px 6px;
+  background: #778DA9;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+section.cart {
+  padding: 15px;
+  font-family: "Roboto", sans-serif;
+}
+section.cart .top {
+  margin: 15px 30px;
+}
+section.cart .content {
+  display: flex;
+  gap: 5px;
+  box-sizing: border-box;
+}
+section.cart .content .left {
+  flex: 1;
+}
+section.cart .content .left .items {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+section.cart .content .left .items .item {
+  padding: 10px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  height: 100px;
+  border-top: 1px solid #303030;
+}
+section.cart .content .left .items .item img {
+  height: 100px;
+}
+section.cart .content .left .items .item.last {
+  border-bottom: 1px solid #303030;
+}
+section.cart .content .left .items .item_coast {
+  white-space: nowrap;
+}
+section.cart .content .left .items .item_remove {
+  box-sizing: border-box;
+  cursor: pointer;
+  white-space: nowrap;
+  margin: 5px;
+  padding: 5px 10px;
+  color: rgba(255, 255, 255, 0.5568627451);
+  background: #D75547;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+section.cart .content .left .items .item_remove:hover {
+  background: #9A261E;
+}
+section.cart .content .left .outInf {
+  margin-top: 20px;
+  text-align: end;
+}
+section.cart .content .right {
+  flex: 0;
+}
+section.cart .content .right .order {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 60px;
+}
+section.cart .content .right .order form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+section.cart .content .right .order form input {
+  box-sizing: border-box;
+  width: 300px;
+  padding: 10px 15px;
+}
+section.cart .content .right .order form input[type=submit] {
+  background: #778DA9;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 18px;
+}
+section.cart .content .right .order form input[type=submit]:hover {
+  background-color: #415A77;
+}
+
+section.order {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+}
+section.order .content {
+  margin-top: 5%;
+}
+section.order .content h1 {
+  text-align: center;
+}
+section.order .content .info {
+  margin-top: 30px;
+  width: 30vw;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+
+section.admin {
+  font-family: "Roboto", sans-serif;
+  padding: 10px;
+}
+section.admin .list {
+  margin-bottom: 20px;
+}
+section.admin .list table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+section.admin .list table th {
+  background: rgba(48, 48, 48, 0.1882352941);
+}
+section.admin .list table td, section.admin .list table th {
+  border: 1px solid #303030;
+}
+section.admin .adds {
+  display: flex;
+  gap: 5%;
+  justify-content: center;
+}
+section.admin .adds .add {
+  margin-bottom: 20px;
+}
+section.admin .adds .add h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+section.admin .adds .add form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+section.admin .adds .add form input {
+  padding: 10px 15px;
+}
+section.admin .adds .add form input[type=submit] {
+  margin-top: 15px;
+  background: #778DA9;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 18px;
+}
+section.admin .adds .add form input[type=submit]:hover {
+  background-color: #415A77;
+}/*# sourceMappingURL=index.css.map */

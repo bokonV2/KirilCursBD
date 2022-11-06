@@ -1,0 +1,97 @@
+{% extends "main-layout.html" %}
+{% block title %}Админ панель{% endblock %}
+{% block content %}
+<section class="admin">
+  <div class="list list_orders">
+    <table>
+      <thead>
+        <th>Id</th>
+        <th>User</th>
+        <th>Items</th>
+        <th>Date</th>
+        <th>__</th>
+      </thead>
+    </table>
+  </div>
+
+  <div class="list list_users">
+    <table>
+      <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>LastName</th>
+        <th>Phone</th>
+        <th>Mail</th>
+        <th>__</th>
+      </thead>
+    </table>
+  </div>
+
+  <hr>
+  <div class="adds">
+
+    <div class="add add_section">
+      <h1>Раздел</h1>
+      <form action="#" method="post">
+        <label>
+          Name
+          <br><input type="text" name="name" autocomplete="new_name" placeholder="Name" required>
+        </label>
+        <label>
+          Раздел
+          <br><select name="section">
+            <option value="">--Please choose an option--</option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="hamster">Hamster</option>
+            <option value="parrot">Parrot</option>
+            <option value="spider">Spider</option>
+            <option value="goldfish">Goldfish</option>
+          </select>
+        </label>
+        <input type="submit" value="Добавить">
+      </form>
+    </div>
+
+    <div class="add add_items">
+      <h1>Товар</h1>
+      <form action="#" method="post">
+        <label>
+          Name*
+          <br><input type="text" name="name" autocomplete="new_name" placeholder="Name" required>
+        </label>
+        <label>
+          Image*
+          <br><input type="url" name="Image" autocomplete="new_Image" placeholder="Image" required>
+        </label>
+        <label>
+          Count
+          <br><input type="text" name="count" autocomplete="new_count" placeholder="count">
+        </label>
+        <label>
+          Coast*
+          <br><input type="text" name="coast" autocomplete="new_coast" placeholder="coast" required>
+        </label>
+        <label>
+          Description*
+          <br><input type="text" name="description" autocomplete="new_description" placeholder="description" required>
+        </label>
+        <label>
+          Section*
+          <br><select name="section">
+            <option value="">--Please choose an option--</option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="hamster">Hamster</option>
+            <option value="parrot">Parrot</option>
+            <option value="spider">Spider</option>
+            <option value="goldfish">Goldfish</option>
+          </select>
+        </label>
+        <input type="submit" value="Добавить">
+      </form>
+    </div>
+  
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "main-layout.html" %}
+{% block title %}Войти{% endblock %}
+{% block content %}
+  <section class="login-register">
+    <div class="box_form">
+      <h1>Вход</h1>
+      <form action="/login" method="post">
+        <label>
+          Номер телефона*<br>
+          <input type="text" name="number" placeholder="Номер телефона" autocomplete="new-number" required>
+        </label>
+        <label>
+          Пароль*<br>
+          <input type="password" name="password" placeholder="Пароль" autocomplete="new-password" required>
+        </label>
+        <input type="submit" value="Войти">
+        <a href="/register">Зарегистрироваться</a>
+      </form>
+    </div>
+  </section>
+{% endblock %}

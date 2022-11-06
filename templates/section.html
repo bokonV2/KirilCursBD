@@ -1,0 +1,48 @@
+{% extends "main-layout.html" %}
+{% block title %}Товары{% endblock %}
+{% block content %}
+  <section class="section">
+    <div class="top">
+      <h1>Title</h1>
+      <h3>Sub Title</h3>
+    </div>
+    <div class="block">
+      <div class="filter">
+        <h4>Фильтр по параметрам</h4>
+        <div class="filter_block">
+          <p>Цена:</p>
+          <input type="text" placeholder="&nbsp;&nbsp; от" style="padding: 5px">
+          <br>
+          <br>
+          <input type="text" placeholder="&nbsp;&nbsp; до" style="padding: 5px">
+        </div>
+        <div class="filter_block last">
+          <p>Сортировать:</p>
+          <select>
+            <option>Цена выше</option>
+            <option>Цена ниже</option>
+            <option>Популярное</option>
+            <option>В наличии</option>
+          </select>
+        </div>
+        <div class="submit">
+          <span>Показать</span>
+        </div>
+      </div>
+      <div class="items">
+        {% for item in items %}
+        <div class="items_item">
+          <img src="{{item.image}}">
+          <span class="items_item-title">
+            {{item.name}}<br>{{item.description}}
+          </span>
+          <span class="items_item-button"> 
+            <span class="items_item-button-coast">1573.44 руб.</span>
+            <span class="items_item-button-buy">В корзину</span>
+          </span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

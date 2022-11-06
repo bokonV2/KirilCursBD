@@ -1,0 +1,44 @@
+{% extends "main-layout.html" %}
+{% block title %}Корзина{% endblock %}
+{% block content %}
+<section class="cart">
+  <div class="top">
+    <h1>Корзина</h1>
+  </div>
+  <div class="content">
+    <div class="left">
+      <div class="items">
+        {% for i in range(16) %}
+        <div class="item">
+          <div class="img"><img src="/static/img/item.jpg"></div>
+          <span class="item_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia possimus fuga perspiciatis illum officiis consectetur?</span>
+          <span class="item_coast">1 548.31 руб.</span>
+          <span class="item_remove">Убрать из корзины</span>
+        </div>
+        {% endfor %}
+        <div class="item last">
+          <div class="img"><img src="/static/img/item.jpg"></div>
+          <span class="item_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia possimus fuga perspiciatis illum officiis consectetur?</span>
+          <span class="item_coast">1 548.31 руб.</span>
+          <span class="item_remove">Убрать из корзины</span>
+        </div>
+      </div>
+      <div class="outInf">
+        <div class="coast">Итого: <b>5 325.34 руб.</b></div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="order">
+        <h2>Оформить заказ</h2>
+        <form action="/">
+          <label>
+            Адресс доставки:
+            <br><input type="text" name="adres" placeholder="Адресс доставки:" autocomplete="new-adres">
+          </label>
+          <input type="submit" value="Заказать">
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
