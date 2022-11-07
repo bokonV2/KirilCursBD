@@ -18,12 +18,38 @@ def index():
 def admin():
     return render_template('admin.html')
 
+@app.route('/admin/addSection', methods=['POST'])
+def addSection():
+    res = request.form
+    if res.get('section_id') != '0':
+        addNewSection(res.get('name'), res.get('section_id'))
+    return render_template('admin.html')
+
+@app.route('/admin/addItems', methods=['POST'])
+def addItems():
+    res = request.form
+    print(res)
+    addNewItem(
+        res.get('name'),
+        res.get('image'),
+        res.get('count'),
+        res.get('coast'),
+        res.get('description'),
+        res.get('section_id')
+    )
+    return render_template('admin.html')
+
 @app.route('/cart')
 def cart():
     return render_template('cart.html')
 
 @app.route('/login')
 def login():
+    return render_template('login.html')
+
+@app.route('/login', methods=['POST'])
+def postLogin():
+    res = request.form
     return render_template('login.html')
 
 @app.route('/orders')

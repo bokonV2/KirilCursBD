@@ -32,21 +32,20 @@
 
     <div class="add add_section">
       <h1>Раздел</h1>
-      <form action="#" method="post">
+      <form action="/admin/addSection" method="post">
         <label>
           Name
           <br><input type="text" name="name" autocomplete="new_name" placeholder="Name" required>
         </label>
         <label>
           Раздел
-          <br><select name="section">
-            <option value="">--Please choose an option--</option>
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-            <option value="hamster">Hamster</option>
-            <option value="parrot">Parrot</option>
-            <option value="spider">Spider</option>
-            <option value="goldfish">Goldfish</option>
+          <br><select name="section_id" required>
+            <option value="0">--Please choose section--</option>
+            <option value="{{ sections[0].id }}">{{ sections[0].name }}</option>
+            <option value="{{ sections[1].id }}">{{ sections[1].name }}</option>
+            <option value="{{ sections[2].id }}">{{ sections[2].name }}</option>
+            <option value="{{ sections[3].id }}">{{ sections[3].name }}</option>
+            <option value="{{ sections[4].id }}">{{ sections[4].name }}</option>
           </select>
         </label>
         <input type="submit" value="Добавить">
@@ -55,37 +54,37 @@
 
     <div class="add add_items">
       <h1>Товар</h1>
-      <form action="#" method="post">
+      <form action="/admin/addItems" method="post">
         <label>
           Name*
           <br><input type="text" name="name" autocomplete="new_name" placeholder="Name" required>
         </label>
         <label>
           Image*
-          <br><input type="url" name="Image" autocomplete="new_Image" placeholder="Image" required>
+          <br><input type="url" name="image" autocomplete="new_Image" placeholder="Image url" required>
         </label>
         <label>
           Count
-          <br><input type="text" name="count" autocomplete="new_count" placeholder="count">
+          <br><input type="text" name="count" autocomplete="new_count" placeholder="Count">
         </label>
         <label>
           Coast*
-          <br><input type="text" name="coast" autocomplete="new_coast" placeholder="coast" required>
+          <br><input type="text" name="coast" autocomplete="new_coast" placeholder="Coast" required>
         </label>
         <label>
           Description*
-          <br><input type="text" name="description" autocomplete="new_description" placeholder="description" required>
+          <br><input type="text" name="description" autocomplete="new_description" placeholder="Description" required>
         </label>
         <label>
           Section*
-          <br><select name="section">
-            <option value="">--Please choose an option--</option>
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-            <option value="hamster">Hamster</option>
-            <option value="parrot">Parrot</option>
-            <option value="spider">Spider</option>
-            <option value="goldfish">Goldfish</option>
+          <br><select name="section_id">
+            {% for super in superSections %}
+            <option value="0" disabled>{{ sections[loop.index0].name }}</option>
+              {% for sectinon in super %}
+              <option value="{{sectinon.id}}">{{sectinon.name}}</option>
+              {% endfor %}
+            </div>
+            {% endfor %}
           </select>
         </label>
         <input type="submit" value="Добавить">

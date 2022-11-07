@@ -5,9 +5,6 @@ def getSections():
     return Sections.select()
 
 def getAllSupersections():
-    a = Supersections.select().where(Supersections.section == 1)
-    for tweet in a:
-        print(tweet.name, '->', tweet.id)
     supersectionsList = [
         Supersections.select().where(Supersections.section == 1),
         Supersections.select().where(Supersections.section == 2),
@@ -19,3 +16,16 @@ def getAllSupersections():
 
 def getAllItems(id):
     return Items.select().where(Items.section == id)
+
+def addNewSection(name, section_id):
+    Supersections.create(name=name, section_id=section_id)
+
+def addNewItem(name, image, count, coast, description, section_id):
+    Items.create(
+        name=name,
+        image=image,
+        count=count,
+        coast=coast,
+        description=description,
+        section_id=section_id
+    )
