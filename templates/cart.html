@@ -8,23 +8,23 @@
   <div class="content">
     <div class="left">
       <div class="items">
-        {% for i in range(16) %}
+        {% for item in products[:-1] %}
         <div class="item">
-          <div class="img"><img src="/static/img/item.jpg"></div>
-          <span class="item_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia possimus fuga perspiciatis illum officiis consectetur?</span>
-          <span class="item_coast">1 548.31 руб.</span>
+          <div class="img"><img src="{{item.image}}"></div>
+          <span class="item_title"><b>{{item.name}}</b> {{item.description}}</span>
+          <span class="item_coast"><b>{{item.coast}} руб.</b></span>
           <span class="item_remove">Убрать из корзины</span>
         </div>
         {% endfor %}
         <div class="item last">
-          <div class="img"><img src="/static/img/item.jpg"></div>
-          <span class="item_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia possimus fuga perspiciatis illum officiis consectetur?</span>
-          <span class="item_coast">1 548.31 руб.</span>
+          <div class="img"><img src="{{products[-1].image}}"></div>
+          <span class="item_title"><b>{{products[-1].name}}</b> {{products[-1].description}}</span>
+          <span class="item_coast"><b>{{products[-1].coast}} руб.</b></span>
           <span class="item_remove">Убрать из корзины</span>
         </div>
       </div>
       <div class="outInf">
-        <div class="coast">Итого: <b>5 325.34 руб.</b></div>
+        <div class="coast">Итого: <b>{{fullPrice}} руб.</b></div>
       </div>
     </div>
     <div class="right">

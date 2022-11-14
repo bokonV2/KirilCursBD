@@ -14,7 +14,7 @@ class Users(BaseModel):
     password = TextField()
 
 class Carts(BaseModel):
-    user = ForeignKeyField(Users)
+    user_id = ForeignKeyField(Users)
     items_list = TextField()
 
 class Orders(BaseModel):

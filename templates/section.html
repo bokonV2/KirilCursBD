@@ -37,8 +37,8 @@
             {{item.name}}<br>{{item.description}}
           </span>
           <span class="items_item-button"> 
-            <span class="items_item-button-coast">1573.44 руб.</span>
-            <span class="items_item-button-buy">В корзину</span>
+            <span class="items_item-button-coast">{{item.coast}} руб.</span>
+            <a href="/cart/addItem/{{item.id}}/{{id}}" class="items_item-button-buy">В корзину</a>
           </span>
         </div>
         {% endfor %}
