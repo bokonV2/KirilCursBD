@@ -357,6 +357,9 @@ section.cart .content .left .items .item img {
 section.cart .content .left .items .item.last {
   border-bottom: 1px solid #303030;
 }
+section.cart .content .left .items .item_title {
+  flex: 1;
+}
 section.cart .content .left .items .item_coast {
   white-space: nowrap;
 }

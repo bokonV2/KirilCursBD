@@ -21,6 +21,8 @@ class Orders(BaseModel):
     user = ForeignKeyField(Users)
     items_list = TextField()
     date = DateTimeField()
+    fullPrice = IntegerField()
+    addres = TextField()
 
 class Sections(BaseModel):
     name = TextField()

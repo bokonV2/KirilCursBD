@@ -3,14 +3,14 @@
 {% block content %}
 <section class="order">
   <div class="content">
-    <h1>Заказ №0</h1>
+    <h1>Заказ №{{order['id']}}</h1>
     <div class="info">
-      <span class="info_fio">Куц Кирилл</span>
-      <span class="info_phone">Телефон: +375 29 777-77-77</span>
-      <span class="info_adres">Адрес: БГАЭК</span>
-      <span class="info_mail">Почта: mail@Mail.com</span>
-      <span class="info_date">Дата заказа: 12.34.2020</span>
-      <span class="info_coast">Сумма заказа: 6 346.45</span>
+      <span class="info_fio">{{order['user']['lastName']}} {{order['user']['name']}}</span>
+      <span class="info_phone">Телефон: +{{order['user']['number']}}</span>
+      <span class="info_adres">Адрес: {{order['addres']}}</span>
+      <span class="info_mail">Почта: {{order['user']['mail']}}</span>
+      <span class="info_date">Дата заказа: {{order['date']}}</span>
+      <span class="info_coast">Сумма заказа: {{order['fullPrice']}} руб.</span>
     </div>
   </div>
 </section>

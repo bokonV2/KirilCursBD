@@ -9,8 +9,17 @@
         <th>User</th>
         <th>Items</th>
         <th>Date</th>
-        <th>__</th>
       </thead>
+      <tbody>
+        {% for order in orders %}
+        <tr>
+          <td>{{order['id']}}</td>
+          <td>{{order['user']['lastName']}} {{order['user']['name']}}</td>
+          <td>{{order['items_list']}}</td>
+          <td>{{order['date']}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
     </table>
   </div>
 
@@ -22,12 +31,22 @@
         <th>LastName</th>
         <th>Phone</th>
         <th>Mail</th>
-        <th>__</th>
       </thead>
+      <tbody>
+        {% for user in users %}
+        <tr>
+          <td>{{user['id']}}</td>
+          <td>{{user['name']}}</td>
+          <td>{{user['lastName']}}</td>
+          <td>{{user['number']}}</td>
+          <td>{{user['mail']}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
     </table>
   </div>
 
-  <hr>
+  <br><br><hr><br><br>
   <div class="adds">
 
     <div class="add add_section">

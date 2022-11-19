@@ -7,22 +7,24 @@
   </div>
   <div class="content">
     <div class="left">
+      {% if products %}
       <div class="items">
         {% for item in products[:-1] %}
         <div class="item">
           <div class="img"><img src="{{item.image}}"></div>
           <span class="item_title"><b>{{item.name}}</b> {{item.description}}</span>
           <span class="item_coast"><b>{{item.coast}} руб.</b></span>
-          <span class="item_remove">Убрать из корзины</span>
+          <a href="/cart/removeItem/{{loop.index0}}" class="item_remove">Убрать из корзины</a>
         </div>
         {% endfor %}
         <div class="item last">
           <div class="img"><img src="{{products[-1].image}}"></div>
           <span class="item_title"><b>{{products[-1].name}}</b> {{products[-1].description}}</span>
           <span class="item_coast"><b>{{products[-1].coast}} руб.</b></span>
-          <span class="item_remove">Убрать из корзины</span>
+          <a href="/cart/removeItem/{{products.index(products[-1])}}" class="item_remove">Убрать из корзины</a>
         </div>
       </div>
+      {% endif %}
       <div class="outInf">
         <div class="coast">Итого: <b>{{fullPrice}} руб.</b></div>
       </div>
@@ -30,12 +32,16 @@
     <div class="right">
       <div class="order">
         <h2>Оформить заказ</h2>
-        <form action="/">
+        <form action="/cart/submit/{{fullPrice}}" method="POST">
           <label>
             Адресс доставки:
-            <br><input type="text" name="adres" placeholder="Адресс доставки:" autocomplete="new-adres">
+            <br><input type="text" name="addres" placeholder="Адресс доставки:" autocomplete="new-adres" required>
           </label>
+          {% if products %}
           <input type="submit" value="Заказать">
+          {% else %}
+          <input type="submit" value="Заказать" disabled>
+          {% endif %}
         </form>
       </div>
     </div>

@@ -41,10 +41,13 @@ def registerNewUser(name, lastName, number, mail, password):
     )
 
 def userLogin(number, password):
-    user = Users.select()\
-        .where(Users.number == number, Users.password == password)\
-        .get()
-    return model_to_dict(user)
+    try:
+        user = Users.select()\
+            .where(Users.number == number, Users.password == password)\
+            .get()
+        return model_to_dict(user)
+    except: 
+        return False
 
 def addItemTocart(user_id, item_id):
     print(user_id)
@@ -61,6 +64,15 @@ def addItemTocart(user_id, item_id):
             items_list = [item_id, ]
         )
         pass
+
+def removeItemCart(user_id, item_index):
+    cart = Carts.select().where(Carts.user_id == user_id).get()
+    dCart = model_to_dict(cart)
+    items = json.loads(dCart['items_list'])
+    items.pop(item_index)
+    cart.items_list = json.dumps(items)
+    cart.save()
+
 
 def getCartLen(user_id):
     try:
@@ -84,3 +96,23 @@ def getAllCart(user_id):
     for item in products:
         fullPrice += item.coast
     return products, fullPrice
+
+def cartSubmit(user_id, fullPrice, addres):
+    cart = Carts.select().where(Carts.user_id == user_id).get()
+    order = Orders.create(
+        user_id = user_id,
+        items_list = cart.items_list,
+        fullPrice = fullPrice, 
+        addres = addres
+    )
+    cart.delete_instance()
+    return order
+
+def getOrder(id):
+    return Orders.select().where(Orders.id == id).get()
+
+def getAllOrders():
+    return Orders.select()
+
+def getAllUsers():
+    return Users.select()

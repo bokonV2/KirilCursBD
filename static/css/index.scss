@@ -419,6 +419,10 @@ section.cart {
             border-bottom: 1px solid #303030;
           }
 
+          &_title{
+            flex: 1;
+          }
+
           &_coast {
             white-space: nowrap;
           }

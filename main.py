@@ -14,7 +14,6 @@ def inject_user():
     if user:
         cartLen = getCartLen(user['id'])
     else:
-        
         cartLen = ""
     return dict(
         sections = sections, 
@@ -29,7 +28,9 @@ def index():
 
 @app.route('/admin')
 def admin():
-    return render_template('admin.html')
+    orders = getAllOrders()
+    users = getAllUsers()
+    return render_template('admin.html', orders=orders, users=users)
 
 @app.route('/admin/addSection', methods=['POST'])
 def addSection():
@@ -54,13 +55,31 @@ def addItems():
 
 @app.route('/cart')
 def cart():
-    products, fullPrice = getAllCart(session['user']['id'])
+    if session['user']:
+        products, fullPrice = getAllCart(session['user']['id'])
+    else:
+        products = None
+        fullPrice = 0 
     return render_template('cart.html', products=products, fullPrice=fullPrice)
 
 @app.route('/cart/addItem/<int:item_id>/<int:id>')
 def addItemToCart(item_id, id):
-    addItemTocart(session['user']['id'], item_id)
+    if session['user']:
+        addItemTocart(session['user']['id'], item_id)
     return redirect(f'/section/{id}')
+
+@app.route('/cart/removeItem/<int:item_index>')
+def removeItemFromCart(item_index):
+    if session['user']:
+        removeItemCart(session['user']['id'], item_index)
+    return redirect('/cart')
+
+@app.route('/cart/submit/<int:fullPrice>', methods=['POST'])
+def postCartSubmit(fullPrice):
+    res = request.form
+    if session['user']:
+        order = cartSubmit(session['user']['id'], fullPrice, res.get('addres'))
+    return redirect(f'/orders/{order.id}')
 
 @app.route('/login')
 def login():
@@ -70,12 +89,16 @@ def login():
 def postLogin():
     res = request.form
     user = userLogin(res.get('number'), res.get('password'))
-    session['user'] = user
-    return render_template('login.html')
+    if user:
+        session['user'] = user
+        return redirect('/')
+    else:
+        return redirect('/login')
 
-@app.route('/orders')
-def orders():
-    return render_template('orders.html')
+@app.route('/orders/<int:id>')
+def orders(id):
+    order = getOrder(id)
+    return render_template('orders.html', order=order)
 
 @app.route('/register')
 def registerGet():
@@ -93,14 +116,17 @@ def registerPost():
     )
     user = userLogin(res.get('number'), res.get('password'))
     session['user'] = user
-    return render_template('orders.html')
-    return render_template('register.html')
+    return redirect('/')
 
 @app.route('/section/<int:id>')
 def section(id):
     items = getAllItems(id)
     return render_template('section.html', items=items, id=id)
 
+@app.route('/logout')
+def logout():
+    session['user'] = None
+    return redirect('/')
 
 
 
